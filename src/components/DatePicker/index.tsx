@@ -1,5 +1,5 @@
 import React from "react";
-import { getDaysInMonth, startOfMonth, getDay } from "date-fns";
+import { getDaysInMonth, startOfMonth, getDay, format } from "date-fns";
 import { Wrapper, DayWrapper } from "./style";
 import { Date } from "./Date";
 import { Controls } from "../Controls";
@@ -25,7 +25,7 @@ export const DatePicker: React.FC<{
   return (
     <Wrapper>
       <Controls prevClicked={prevClicked} nextClicked={nextClicked} />
-
+      {format(currentPageDate, "MMMM yyyy")}
       <DayWrapper>
         {days.map((day, index) => (
           <Date key={index} day={day.toString()} />
