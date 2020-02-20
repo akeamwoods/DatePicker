@@ -10,7 +10,8 @@ export const DatePicker: React.FC<{
   nextClicked: () => void;
 }> = ({ currentPageDate, prevClicked, nextClicked }) => {
   const dayHeadings = ["M", "T", "W", "T", "F", "S", "S"];
-  const paddingDays = getDay(startOfMonth(currentPageDate)) - 1;
+  const padding = getDay(startOfMonth(currentPageDate));
+  const paddingDays = padding > 0 ? padding - 1 : padding;
   const daysInMonth = getDaysInMonth(currentPageDate);
 
   const days = [
