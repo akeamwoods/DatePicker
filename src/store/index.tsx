@@ -1,8 +1,7 @@
 import { Actions, actions } from "./actions";
-import { Reducer, createStore, applyMiddleware } from "redux";
+import { Reducer, createStore } from "redux";
 import { TypedUseSelectorHook, useSelector } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import createSagaMiddleware from "redux-saga";
 import produce from "immer";
 import { getType } from "typesafe-actions";
 
@@ -25,5 +24,4 @@ export const rootReducer: Reducer<State, Actions> = (
   });
 
 export const store = createStore(rootReducer, composeWithDevTools());
-
 export const useTypedSelector: TypedUseSelectorHook<State> = useSelector;
