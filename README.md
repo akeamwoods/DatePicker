@@ -1,3 +1,4 @@
-# DatePicker
+# DatePicker Timed Challenge
 
-Timed challenge to create a DatePicker component which simulates a calendar a user can scroll through and select a date.
+Made in < 3 hours.
+Demo: https://akeamwoods.github.io/DatePicker/
