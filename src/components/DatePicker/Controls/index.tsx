@@ -10,7 +10,7 @@ export const Controls: React.FC<{
   return (
     <Wrapper>
       <button onClick={prevClicked}>prev</button>
-      <h3>{format(date, "MMMM yyyy")}</h3>
+      <h4>{format(date, "MMMM yyyy")}</h4>
       <button onClick={nextClicked}>next</button>
     </Wrapper>
   );

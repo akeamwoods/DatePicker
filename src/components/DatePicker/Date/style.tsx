@@ -7,6 +7,6 @@ export const Wrapper = styled.div`
   align-items: center;
   cursor: pointer;
   :hover {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.2);
   }
 `;
