@@ -1,5 +1,13 @@
 import React from "react";
-import { getDaysInMonth, startOfMonth, getDay } from "date-fns";
+import {
+  getDaysInMonth,
+  startOfMonth,
+  getDay,
+  addDays,
+  subMonths,
+  endOfMonth,
+  subDays
+} from "date-fns";
 import { Wrapper, DayWrapper } from "./style";
 import { Date } from "./Date";
 import { Controls } from "./Controls";
@@ -15,13 +23,16 @@ export const DatePicker: React.FC<{
   const daysInMonth = getDaysInMonth(currentPageDate);
 
   const days = [
-    ...dayHeadings,
-    ...Array(paddingDays).fill(0),
+    ...Array(paddingDays)
+      .fill(0)
+      .map((_, i) =>
+        subDays(endOfMonth(subMonths(currentPageDate, 1)), paddingDays - i - 1)
+      ),
     ...Array(daysInMonth)
       .fill(1)
-      .map((_, i) => i + 1)
+      .map((_, i) => addDays(startOfMonth(currentPageDate), i))
   ];
-
+  console.log(days);
   return (
     <Wrapper>
       <Controls
@@ -31,8 +42,11 @@ export const DatePicker: React.FC<{
       />
 
       <DayWrapper>
-        {days.map((day, index) => (
-          <Date key={index} day={day.toString()} />
+        {dayHeadings.map((day, index) => (
+          <Date key={index} heading={day} />
+        ))}
+        {days.map(day => (
+          <Date date={day} />
         ))}
       </DayWrapper>
     </Wrapper>
