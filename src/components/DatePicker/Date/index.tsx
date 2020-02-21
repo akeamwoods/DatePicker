@@ -35,6 +35,7 @@ export const Date: React.FC<{
 
   return (
     <Wrapper
+      isDate={date ? true : false}
       isWithinRange={isWithinRange}
       isSelected={isSelected}
       onClick={() => (date ? dispatch(actions.dateClicked(date)) : void {})}

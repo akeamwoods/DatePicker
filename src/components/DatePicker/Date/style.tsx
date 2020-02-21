@@ -3,6 +3,7 @@ import styled from "styled-components";
 type WrapperProps = {
   isSelected: boolean;
   isWithinRange: boolean;
+  isDate: boolean;
 };
 
 export const Wrapper = styled.div.attrs((props: WrapperProps) => ({}))<
@@ -17,8 +18,9 @@ export const Wrapper = styled.div.attrs((props: WrapperProps) => ({}))<
     props.isSelected ? "#1B1B1B" : props.isWithinRange ? "#EBEBEB" : undefined};
   color: ${props => (props.isSelected ? "#fff" : "#000")};
   :hover {
-    background: ${props => (!props.isSelected ? "#1B1B1B" : undefined)};
-    color: ${props => (!props.isSelected ? "#fff" : undefined)};
+    background: ${props =>
+      !props.isSelected && props.isDate ? "#1B1B1B" : undefined};
+    color: ${props => (!props.isSelected && props.isDate ? "#fff" : undefined)};
   }
 `;
 
