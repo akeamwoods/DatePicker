@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   width: 300px;
 `;
 export const DayWrapper = styled.div`
+  height: 300px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(7, 1fr);
