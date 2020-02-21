@@ -1,6 +1,6 @@
 import React from "react";
 import { Wrapper, DateText } from "./style";
-import { format, isSameMonth, isBefore, isAfter } from "date-fns";
+import { format, isSameMonth, isBefore, isAfter, isSameDay } from "date-fns";
 import { useTypedSelector } from "../../../store";
 import { useDispatch } from "react-redux";
 import { actions } from "../../../store/actions";
@@ -16,7 +16,11 @@ export const Date: React.FC<{
   );
 
   const isSelected = useTypedSelector(state =>
-    date && (state.startDate === date || state.endDate === date) ? true : false
+    date &&
+    ((state.startDate && isSameDay(date, state.startDate)) ||
+      (state.endDate && isSameDay(date, state.endDate)))
+      ? true
+      : false
   );
 
   const isWithinRange = useTypedSelector(state =>

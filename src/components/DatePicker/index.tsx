@@ -36,7 +36,6 @@ export const DatePicker: React.FC<{
     .fill(0)
     .map((_, i) => addDays(startOfMonth(addMonths(currentPageDate, 1)), i));
 
-  console.log(days);
   return (
     <Wrapper>
       <Controls />
