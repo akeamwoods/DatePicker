@@ -4,9 +4,10 @@ import { TypedUseSelectorHook, useSelector } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import produce from "immer";
 import { getType } from "typesafe-actions";
+import { startOfMonth } from "date-fns";
 
 const initialState = () => ({
-  date: new Date()
+  date: startOfMonth(new Date())
 });
 
 export type State = Readonly<ReturnType<typeof initialState>>;
