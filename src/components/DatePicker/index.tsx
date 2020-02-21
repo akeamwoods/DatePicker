@@ -15,9 +15,7 @@ import { Controls } from "./Controls";
 
 export const DatePicker: React.FC<{
   currentPageDate: Date;
-  prevClicked: () => void;
-  nextClicked: () => void;
-}> = ({ currentPageDate, prevClicked, nextClicked }) => {
+}> = ({ currentPageDate }) => {
   const dayHeadings = ["M", "T", "W", "T", "F", "S", "S"];
   const padding = getDay(startOfMonth(currentPageDate));
   const paddingDays = padding > 0 ? padding - 1 : padding;
@@ -41,24 +39,19 @@ export const DatePicker: React.FC<{
   console.log(days);
   return (
     <Wrapper>
-      <Controls
-        date={currentPageDate}
-        prevClicked={prevClicked}
-        nextClicked={nextClicked}
-      />
-
+      <Controls />
       <DayWrapper>
         {dayHeadings.map((day, index) => (
           <Date key={index} heading={day} />
         ))}
         {prevDays.map(day => (
-          <Date date={day} differentMonth={true} />
+          <Date date={day} />
         ))}
         {days.map(day => (
           <Date date={day} />
         ))}
         {nextDays.map(day => (
-          <Date date={day} differentMonth={true} />
+          <Date date={day} />
         ))}
       </DayWrapper>
     </Wrapper>
