@@ -20,7 +20,7 @@ export const DatePicker: React.FC<{
   const padding = getDay(startOfMonth(currentPageDate));
   const paddingDays = padding > 0 ? padding - 1 : padding;
   const daysInMonth = getDaysInMonth(currentPageDate);
-  const futureDays = 35 - paddingDays - daysInMonth;
+  const futureDays = 42 - paddingDays - daysInMonth;
 
   const prevDays = Array(paddingDays)
     .fill(0)

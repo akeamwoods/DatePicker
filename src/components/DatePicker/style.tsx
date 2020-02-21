@@ -10,7 +10,6 @@ export const Wrapper = styled.div`
   padding: 10px;
 `;
 export const DayWrapper = styled.div`
-  height: 200px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(7, 1fr);
