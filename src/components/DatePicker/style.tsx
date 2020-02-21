@@ -6,6 +6,8 @@ export const Wrapper = styled.div`
   flex: 1 1 auto;
   width: 300px;
   font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid #e1e1e1;
+  padding: 10px;
 `;
 export const DayWrapper = styled.div`
   height: 300px;
