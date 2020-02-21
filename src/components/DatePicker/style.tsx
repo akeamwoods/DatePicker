@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  flex: 1 1 auto;
+  width: 300px;
 `;
 export const DayWrapper = styled.div`
   display: grid;
