@@ -11,7 +11,10 @@ export const Date: React.FC<{
   console.log(differentMonth);
   return (
     <Wrapper onClick={onSelect ? onSelect : undefined}>
-      <DateText differentMonth={differentMonth}>
+      <DateText
+        isHeading={heading ? true : false}
+        differentMonth={differentMonth}
+      >
         {heading ? heading : date ? format(date, "d") : undefined}
       </DateText>
     </Wrapper>

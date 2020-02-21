@@ -13,8 +13,10 @@ export const Wrapper = styled.div`
 
 type Props = {
   differentMonth: boolean;
+  isHeading: boolean;
 };
 
 export const DateText = styled.p.attrs((props: Props) => ({}))<Props>`
   opacity: ${props => (props.differentMonth ? 0.5 : 1)};
+  font-weight: ${props => (props.isHeading ? 600 : 0)};
 `;
