@@ -17,6 +17,7 @@ export const Wrapper = styled.div.attrs((props: WrapperProps) => ({}))<
   background: ${props =>
     props.isSelected ? "#1B1B1B" : props.isWithinRange ? "#EBEBEB" : undefined};
   color: ${props => (props.isSelected ? "#fff" : "#000")};
+  opacity: ${props => (props.isSelected ? 1 : undefined)};
   :hover {
     background: ${props =>
       !props.isSelected && props.isDate ? "#1B1B1B" : undefined};
@@ -32,6 +33,6 @@ type DateTextProps = {
 export const DateText = styled.p.attrs((props: DateTextProps) => ({}))<
   DateTextProps
 >`
-  opacity: ${props => (props.differentMonth ? 0.5 : 1)};
+  opacity: ${props => (props.differentMonth && !props.isHeading ? 0.5 : 1)};
   font-weight: ${props => (props.isHeading ? 600 : 0)};
 `;
