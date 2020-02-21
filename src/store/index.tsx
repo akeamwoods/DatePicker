@@ -25,7 +25,7 @@ export const rootReducer: Reducer<State, Actions> = (
         break;
       case getType(actions.dateClicked):
         if (draft.startDate && draft.endDate) {
-          draft.startDate = undefined;
+          draft.startDate = action.payload;
           draft.endDate = undefined;
         } else if (draft.startDate) {
           if (draft.startDate === action.payload) {
