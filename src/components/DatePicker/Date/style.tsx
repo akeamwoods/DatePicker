@@ -1,22 +1,34 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+type WrapperProps = {
+  isSelected: boolean;
+  isWithinRange: boolean;
+};
+
+export const Wrapper = styled.div.attrs((props: WrapperProps) => ({}))<
+  WrapperProps
+>`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  background: ${props =>
+    props.isSelected ? "red" : props.isWithinRange ? "orange" : undefined};
   :hover {
-    background: rgba(0, 0, 0, 0.2);
+    background: ${props =>
+      !props.isSelected ? "rgba(0, 0, 0, 0.2)" : undefined};
   }
 `;
 
-type Props = {
+type DateTextProps = {
   differentMonth: boolean;
   isHeading: boolean;
 };
 
-export const DateText = styled.p.attrs((props: Props) => ({}))<Props>`
+export const DateText = styled.p.attrs((props: DateTextProps) => ({}))<
+  DateTextProps
+>`
   opacity: ${props => (props.differentMonth ? 0.5 : 1)};
   font-weight: ${props => (props.isHeading ? 600 : 0)};
 `;
