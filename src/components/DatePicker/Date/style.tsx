@@ -14,10 +14,11 @@ export const Wrapper = styled.div.attrs((props: WrapperProps) => ({}))<
   align-items: center;
   cursor: pointer;
   background: ${props =>
-    props.isSelected ? "red" : props.isWithinRange ? "orange" : undefined};
+    props.isSelected ? "#1B1B1B" : props.isWithinRange ? "#EBEBEB" : undefined};
+  color: ${props => (props.isSelected ? "#fff" : "#000")};
   :hover {
-    background: ${props =>
-      !props.isSelected ? "rgba(0, 0, 0, 0.2)" : undefined};
+    background: ${props => (!props.isSelected ? "#1B1B1B" : undefined)};
+    color: ${props => (!props.isSelected ? "#fff" : undefined)};
   }
 `;
 
