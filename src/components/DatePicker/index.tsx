@@ -2,7 +2,7 @@ import React from "react";
 import { getDaysInMonth, startOfMonth, getDay } from "date-fns";
 import { Wrapper, DayWrapper } from "./style";
 import { Date } from "./Date";
-import { Controls } from "../Controls";
+import { Controls } from "./Controls";
 
 export const DatePicker: React.FC<{
   currentPageDate: Date;
