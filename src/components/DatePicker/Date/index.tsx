@@ -1,15 +1,19 @@
 import React from "react";
-import { Wrapper } from "./style";
+import { Wrapper, DateText } from "./style";
 import { format } from "date-fns";
 
 export const Date: React.FC<{
   heading?: string;
   date?: Date;
   onSelect?: () => void;
-}> = ({ heading, date, onSelect }) => {
+  differentMonth?: boolean;
+}> = ({ heading, date, onSelect, differentMonth = false }) => {
+  console.log(differentMonth);
   return (
     <Wrapper onClick={onSelect ? onSelect : undefined}>
-      {heading ? heading : date ? format(date, "d") : undefined}
+      <DateText differentMonth={differentMonth}>
+        {heading ? heading : date ? format(date, "d") : undefined}
+      </DateText>
     </Wrapper>
   );
 };

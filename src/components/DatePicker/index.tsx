@@ -4,6 +4,7 @@ import {
   startOfMonth,
   getDay,
   addDays,
+  addMonths,
   subMonths,
   endOfMonth,
   subDays
@@ -21,17 +22,22 @@ export const DatePicker: React.FC<{
   const padding = getDay(startOfMonth(currentPageDate));
   const paddingDays = padding > 0 ? padding - 1 : padding;
   const daysInMonth = getDaysInMonth(currentPageDate);
+  const futureDays = 35 - paddingDays - daysInMonth;
 
-  const days = [
-    ...Array(paddingDays)
-      .fill(0)
-      .map((_, i) =>
-        subDays(endOfMonth(subMonths(currentPageDate, 1)), paddingDays - i - 1)
-      ),
-    ...Array(daysInMonth)
-      .fill(1)
-      .map((_, i) => addDays(startOfMonth(currentPageDate), i))
-  ];
+  const prevDays = Array(paddingDays)
+    .fill(0)
+    .map((_, i) =>
+      subDays(endOfMonth(subMonths(currentPageDate, 1)), paddingDays - i - 1)
+    );
+
+  const days = Array(daysInMonth)
+    .fill(1)
+    .map((_, i) => addDays(startOfMonth(currentPageDate), i));
+
+  const nextDays = Array(futureDays > 0 ? futureDays : 0)
+    .fill(0)
+    .map((_, i) => addDays(startOfMonth(addMonths(currentPageDate, 1)), i));
+
   console.log(days);
   return (
     <Wrapper>
@@ -45,8 +51,14 @@ export const DatePicker: React.FC<{
         {dayHeadings.map((day, index) => (
           <Date key={index} heading={day} />
         ))}
+        {prevDays.map(day => (
+          <Date date={day} differentMonth={true} />
+        ))}
         {days.map(day => (
           <Date date={day} />
+        ))}
+        {nextDays.map(day => (
+          <Date date={day} differentMonth={true} />
         ))}
       </DayWrapper>
     </Wrapper>
